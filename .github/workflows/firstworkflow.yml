@@ -1,0 +1,10 @@
+name: aprilworkflow
+on: push
+jobs: 
+  first-job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: print "hello world"
+        run: echo "hello world"  
+      - name: print "hello april"
+        run: echo "hello april"          
