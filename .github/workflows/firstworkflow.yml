@@ -7,7 +7,7 @@ jobs:
       - name: print "hello world"
         run: echo "hello world"  
       - name: install tree
-        run: apt install tree -y   
+        run: sudo apt install tree -y   
 
   second-job:
     runs-on: windows-latest
@@ -15,4 +15,4 @@ jobs:
       - name: print "hello world"
         run: echo "hello world"  
       - name: install tree
-        run: apt install tree -y            
+        run: sudo apt install tree -y            
