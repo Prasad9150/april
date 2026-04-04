@@ -7,4 +7,12 @@ jobs:
       - name: print "hello world"
         run: echo "hello world"  
       - name: print "hello april"
-        run: echo "hello april"          
+        run: echo "hello april"   
+
+  second-job:
+    runs-on: windows-latest
+    steps: 
+      - name: print "hello world"
+        run: echo "hello world"  
+      - name: print "hello april"
+        run: echo "hello april"             
