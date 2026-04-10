@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 
-resource "aws_s3_bucket" "examplev2" {
+resource "aws_s3_bucket" "bucket_app_1" {
   bucket = "my-tf-april11th-bucket"
 
   tags = {
@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "examplev2" {
   }
 }
 
-resource "aws_s3_bucket" "examplev3" {
+resource "aws_s3_bucket" "bucket_app_2" {
   bucket = "my-tf-april12th-bucket"
 
   tags = {
