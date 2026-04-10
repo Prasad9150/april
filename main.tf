@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-april10th-bucket"
+resource "aws_s3_bucket" "examplev2" {
+  bucket = "my-tf-april11th-bucket"
 
   tags = {
-    Name        = "april-bucket"
+    Name        = "april-bucket1"
     Environment = "dev"
   }
 }
