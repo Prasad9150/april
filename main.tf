@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "example" {
   }
 }
 
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "examplev2" {
   bucket = "my-tf-april11th-bucket"
 
   tags = {
