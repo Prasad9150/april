@@ -12,3 +12,12 @@ resource "aws_s3_bucket" "example" {
   }
 }
 
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-april11th-bucket"
+
+  tags = {
+    Name        = "april-bucket"
+    Environment = "dev"
+  }
+}
+
