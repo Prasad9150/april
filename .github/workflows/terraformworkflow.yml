@@ -1,8 +1,7 @@
 name: terraform-workflow
 on: 
-  push:
-    branches:
-      - main
+
+  workflow_dispatch:    
 
 jobs: 
   first-job:
@@ -11,13 +10,13 @@ jobs:
       - name: clone the repository
         uses: actions/checkout@v4
       - name: setup terraform
-        uses: hashicorphashicorp/setup-terraform@v4
+        uses: hashicorp/setup-terraform@v4
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v4               
+        uses: aws-actions/configure-aws-credentials@v6.1.0              
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-          aws-secret-access-key: ${{AWS_SECRET_ACCESS_KEY}}
-          regions: us-east-1 
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-1 
       - name: initilize terraform
         run: terraform init
       - name: plan terraform          

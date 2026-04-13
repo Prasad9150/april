@@ -1,0 +1,42 @@
+name: terraform s3 workflow
+on: 
+  workflow_dispatch:
+    inputs:
+      action:
+        required: true
+        default: plan
+        type: choice
+        options: 
+          - init
+          - plan
+          - apply
+          - all 
+jobs: 
+  terraform:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: clone the repository
+        uses: actions/checkout@v4
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v4
+
+      - name: initilize terraform
+        if: ${{ github.event.inputs.actions == 'init' || github.event.inputs.actions == 'all' }}
+        run: terraform init
+      - name: plan terraform
+        if: ${{ github.event.inputs.actions == 'plan' || github.event.inputs.actions == 'all' }}          
+        run: |
+          terraform init
+          terraform plan
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v6.1.0              
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-1       
+      - name: terraform apply 
+        if: ${{ github.event.inputs.actions == 'apply' || github.event.inputs.actions == 'all' }}        
+        run: |
+          terraform init
+          terraform apply -auto-approve
+        
