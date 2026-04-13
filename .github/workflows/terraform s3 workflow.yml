@@ -1,0 +1,24 @@
+name: terraform s3 workflow
+on: 
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+    inputs:
+      action:
+        required: true
+        type: choice
+        options: 
+          - init
+          - plan
+          - apply
+          - all 
+jobs: 
+  first-job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: print "hello world"
+        run: echo "hello world"  
+      - name: install tree
+        run: sudo apt install tree -y 
