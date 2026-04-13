@@ -1,10 +1,10 @@
 name: terraform s3 workflow
 on: 
-
   workflow_dispatch:
     inputs:
       action:
         required: true
+        default: plan
         type: choice
         options: 
           - init
