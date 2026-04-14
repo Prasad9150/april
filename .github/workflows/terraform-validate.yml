@@ -1,0 +1,12 @@
+name: terraform validate
+on: 
+  workflow_call:
+
+jobs: 
+  terraform:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: clone the repository
+        uses: actions/checkout@v4
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v4          

@@ -11,7 +11,9 @@ on:
           - plan
           - apply
           - all 
-jobs: 
+jobs:
+  terraform-checks:
+    uses: ./.github/workflows/terraform-validate.yml 
   terraform:
     runs-on: ubuntu-latest
     steps: 
