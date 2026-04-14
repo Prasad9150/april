@@ -21,10 +21,10 @@ jobs:
         uses: hashicorp/setup-terraform@v4
 
       - name: initilize terraform
-        if: ${{ github.event.inputs.actions == 'init' || github.event.inputs.actions == 'all' }}
+        if: ${{ inputs.action == 'init' || inputs.action == 'all' }}
         run: terraform init
       - name: plan terraform
-        if: ${{ github.event.inputs.actions == 'plan' || github.event.inputs.actions == 'all' }}          
+        if: ${{ inputs.action == 'plan' || inputs.action == 'all' }}          
         run: |
           terraform init
           terraform plan
@@ -35,7 +35,7 @@ jobs:
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: us-east-1       
       - name: terraform apply 
-        if: ${{ github.event.inputs.actions == 'apply' || github.event.inputs.actions == 'all' }}        
+        if: ${{ inputs.action == 'apply' || inputs.action == 'all' }}        
         run: |
           terraform init
           terraform apply -auto-approve
