@@ -1,6 +1,9 @@
 provider "aws" {
   region = "us-east-1"
 }
+provider "azurerm" {
+  # Configuration options
+}
 
 
 resource "aws_s3_bucket" "bucket_app_1" {
