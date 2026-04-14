@@ -9,4 +9,8 @@ jobs:
       - name: clone the repository
         uses: actions/checkout@v4
       - name: setup terraform
-        uses: hashicorp/setup-terraform@v4          
+        uses: hashicorp/setup-terraform@v4
+      - name: terraform format
+        run: terraform fmt 
+      - name: terraform validate
+        run: terraform validate                     
