@@ -15,6 +15,7 @@ jobs:
   terraform-checks:
     uses: ./.github/workflows/terraform-validate.yml 
   terraform:
+    needs: terraform validate
     runs-on: ubuntu-latest
     steps: 
       - name: clone the repository
